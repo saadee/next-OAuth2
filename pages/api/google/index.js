@@ -1,7 +1,5 @@
-const http = require('http');
-const https = require('https');
-const url = require('url');
 const { google } = require('googleapis');
+import { YOUR_REDIRECT_URL, scopes } from '../../../constants';
 
 /**
  * To use OAuth2 authentication, we need access to a CLIENT_ID, CLIENT_SECRET, AND REDIRECT_URI.
@@ -10,19 +8,6 @@ const { google } = require('googleapis');
  *
  */
 
-const APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://thunderous-panda-a976d7.netlify.app';
-
-const YOUR_REDIRECT_URL = `${APP_URL}/api/google/callback`;
-
-const scopes = [
-    'https://www.googleapis.com/auth/userinfo.profile',
-    'https://www.googleapis.com/auth/userinfo.email',
-    'https://www.googleapis.com/auth/spreadsheets',
-    'https://www.googleapis.com/auth/drive',
-    'https://www.googleapis.com/auth/drive.readonly',
-    'https://www.googleapis.com/auth/drive.file',
-    'https://www.googleapis.com/auth/spreadsheets.readonly',
-];
 export default async function main(req, res) {
     // settign OAUth
     const oauth2Client = new google.auth.OAuth2(process.env.GOOGLE_CLIENT_ID, process.env.GOOGLE_CLIENT_SECRET, YOUR_REDIRECT_URL);

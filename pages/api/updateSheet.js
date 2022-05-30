@@ -21,7 +21,7 @@ export default async function handler(req, res) {
   const APP_URL =
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000'
-      : 'https://thunderous-panda-a976d7.netlify.app/';
+      : 'https://thunderous-panda-a976d7.netlify.app';
 
   const YOUR_REDIRECT_URL = `${APP_URL}/api/google/callback`;
   const tokens = getCookie('tokens', { req, res });

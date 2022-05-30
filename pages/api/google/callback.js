@@ -9,7 +9,7 @@ const { google } = require('googleapis');
 const APP_URL =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000'
-    : 'https://next-dashboard-app.vercel.app';
+    : 'https://thunderous-panda-a976d7.netlify.app/';
 
 const YOUR_REDIRECT_URL = `${APP_URL}/api/google/callback`;
 
